@@ -1,0 +1,58 @@
+
+= Project Migration From Previous DMCP
+
+
+
+== Quick Steps
+
+
+Change target program name from '.pgm' to '.pg5' in Makefile:
+
+----
+diff a/Makefile b/Makefile
+        $(OBJCOPY) --only-section   .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_qspi.bin
+        $(BIN_DIR)check_qspi_crc $(TARGET) src/qspi_crc.h || ( $(MAKE) clean && false )
+-       $(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
++       $(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pg5
+        $(SIZE) $@
+----
+
+
+Replace 'dmcp/' directory with new one
+
+
+Replace 'stm32_program.ld' with new one
+
+
+Build with make, copy resulting '.pg5' file to calc disk and install from DMCP menu.
+
+
+
+
+== More Details
+
+
+Memory layout of stm32U5 differs from previous CPU, compare MEMORY sections in '.ld' scripts.
+
+
+STM32U5 interrupt table is bigger, library call table had to be moved:
+
+----
+diff a/dmcp/lft_ifc.h b/dmcp/lft_ifc.h
+-#define LIBRARY_FN_BASE   0x08000201
++#define LIBRARY_FN_BASE   0x08000301
+----
+
+
+Shared system data had to be moved to reflect new memory layout:
+
+----
+diff a/dmcp/dmcp.h b/dmcp/dmcp.h
+-#define sdb (*((sys_sdb_t*)0x10002000))
++#define sdb (*((sys_sdb_t*)0x20000000))
+----
+
+
+
+
+
