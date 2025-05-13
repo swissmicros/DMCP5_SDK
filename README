@@ -1,16 +1,19 @@
 
-== WARNING
+== INTRO
 
-Work on DMCP5 is in progress. There is no separate distribution of DMCP5.
-Use DM32 combo firmware and "Setup->System->Reset to DMCP menu".
+DMCP5 is re-implementation of previous DMCP system for new Swissmicros hardware.
 
+Application interface remains the same. See README.migration how to migrate
+DMCP application to DMCP5.
+
+Latest DMCP5 firmware is available at https://technical.swissmicros.com/dmcp/firmware_dmcp5/
 
 
 == Prerequisites
 
 GNU ARM toolchain can be downloaded from
   https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads.
-We are currently using Version 7-2018-q2-update Linux 64-bit.
+We are currently using Version 10.3-2021.10 Linux 64-bit.
 
 Make is usually available in some base development package, but you
 can install it directly, e.g. for debian like systems
@@ -27,7 +30,7 @@ Some usually available aux utilities (could require separate installation):
 == Build
 
 Add ARM toolchain bin/ directory to PATH.
-(e.g. ~/arm/gcc-arm-none-eabi-7-2018-q2-update/bin)
+(e.g. ~/arm/gcc-arm-none-eabi-10.3-2021.10/bin)
 
 Run make to build the program.
 

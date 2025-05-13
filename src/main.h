@@ -2,7 +2,7 @@
 
 BSD 3-Clause License
 
-Copyright (c) 2015-2023, SwissMicros
+Copyright (c) 2015-2025, SwissMicros
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -45,5 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define PROGRAM_NAME    "TESTPGM"
 #define PROGRAM_VERSION "1.0"
+
+#define PROGRAM_KEYMAP_ID 0x32334d44
 
 #endif

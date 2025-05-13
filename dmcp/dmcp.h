@@ -2,7 +2,7 @@
 
 BSD 3-Clause License
 
-Copyright (c) 2015-2023, SwissMicros
+Copyright (c) 2015-2025, SwissMicros
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -228,6 +228,7 @@ int lcd_toggleFontT(int nr);
 #define DISP_PROD_DIAG          23
 #define DISP_POWER_CHECK        24
 #define DISP_FLASH_CONNECT_USB  26
+//#define DISP_FAILBOOT           27
 // ----
 
 
@@ -356,7 +357,7 @@ typedef struct {
 
 // ----------------------------------
 
-#define PLATFORM_VERSION "3.50t29"
+#define PLATFORM_VERSION "3.52"
 
 // System interface version
 #define PLATFORM_IFC_CNR   3
@@ -511,6 +512,8 @@ uint8_t * qspi_user_addr();
 int qspi_user_size();
 
 
+// RESET preserved region 0x28003f00-0x28003fff (U5)
+#define RESET_STATE_RAM        0x28003f00
 
 
 // ----------------------------------
