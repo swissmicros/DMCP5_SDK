@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 typedef unsigned int uint;
 
 #include "ff_ifc.h"
-
+#include "qrcode.h"
 
 // ----------------------------------
 
@@ -357,11 +357,11 @@ typedef struct {
 
 // ----------------------------------
 
-#define PLATFORM_VERSION "3.53"
+#define PLATFORM_VERSION "3.54"
 
 // System interface version
 #define PLATFORM_IFC_CNR   3
-#define PLATFORM_IFC_VER  16
+#define PLATFORM_IFC_VER  17
 
 // STATIC_ASSERT ...
 #define ASSERT_CONCAT_(a, b) a##b
@@ -963,6 +963,13 @@ int sys_last_key();
 // Aux file
 void make_date_filename(char * str, const char * dir, const char * ext);
 
+
+
+// ---------------------------
+//  QR code
+// ---------------------------
+
+void qrcode_disp(QRCode *qr, int xo, int yo, int z);
 
 
 // ---------------------------
