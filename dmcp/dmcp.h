@@ -31,7 +31,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-  The software and related material is released as “NOMAS”  (NOt MAnufacturer Supported). 
+  The software and related material is released as “NOMAS”  (NOt MAnufacturer Supported).
 
   1. Info is released to assist customers using, exploring and extending the product
   2. Do NOT contact the manufacturer with questions, seeking support, etc. regarding
@@ -44,6 +44,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __SYS_DMCP_H__
 
 #include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
 
 typedef unsigned int uint;
 
@@ -192,7 +196,7 @@ int lcd_textToWidthR(disp_stat_t * ds, const char* text, int expected_width, int
 void lcd_writeTextWidth(disp_stat_t * ds, const char* text);
 
 // Get text which fits in expected width *without breaking words*
-// - word could be broken in the middle only when is placed single long word on line 
+// - word could be broken in the middle only when is placed single long word on line
 int lcd_textForWidth(disp_stat_t * ds, const char* text, int expected_width, int * plen);
 
 
@@ -464,7 +468,7 @@ int sys_last_scan(int *k1, int *k2);
 
 
 /////////////////////////////////
-// Low level diagnostics 
+// Low level diagnostics
 /////////////////////////////////
 
 void suspended_bg_key_read();
@@ -519,7 +523,7 @@ int qspi_user_size();
 // ----------------------------------
 
 
-// Printer 
+// Printer
 #define PRINT_GRA_LN  1
 #define PRINT_TXT_LN  0
 
@@ -819,7 +823,7 @@ int run_menu_item_sys(uint8_t line_id);
 #define VAL_ST(x)       VAL(x,calc_state)
 #define CLR_ST(x)       CLR(x,calc_state)
 #define SET_ST(x)       SET(x,calc_state)
-#define SETMSK_ST(x,m)  SETMSK(x,m,calc_state) 
+#define SETMSK_ST(x,m)  SETMSK(x,m,calc_state)
 #define SETBY_ST(c,x)   SETBY(c,x,calc_state)
 
 
@@ -937,7 +941,7 @@ int sys_timer_active(int timer_ix);
 int sys_timer_timeout(int timer_ix);
 
 // Millisecond delay
-void sys_delay(uint32_t ms_delay); 
+void sys_delay(uint32_t ms_delay);
 
 // Current systick count
 uint32_t sys_tick_count();
@@ -1010,5 +1014,9 @@ int update_bmp_file_header(FIL* fp, int width, int height, uint32_t bg_color);
 
 
 #include "lft_ifc.h"
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
 
 #endif
