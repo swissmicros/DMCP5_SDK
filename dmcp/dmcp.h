@@ -357,7 +357,7 @@ typedef struct {
 
 // ----------------------------------
 
-#define PLATFORM_VERSION "3.55"
+#define PLATFORM_VERSION "3.57"
 
 // System interface version
 #define PLATFORM_IFC_CNR   3
@@ -615,6 +615,7 @@ extern const smenu_t     MID_BAD_KMAP; // Bad keymap menu
 #define MI_KMAP_PGM_RUN    224
 #define MI_KMAP_DMCP       225
 
+#define MI_KBD_HW_TEST     226
 // --------------------------------
 
 
